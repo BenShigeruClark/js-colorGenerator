@@ -51,14 +51,15 @@
         flex-direction: column;
         position: absolute;
         bottom: 0%;
-        background: rgb(234, 232, 232);
+        background: rgb(255, 255, 255);
+        opacity: 0;
         padding: 1rem;
         width: 80%;
         border-top-right-radius: 1rem;
         pointer-events: none;
         border-top-left-radius: 1rem;
         /* Add an adjustment class */
-        /* transform: translateY(100px); */
+        transform: translateY(100px);
         transition: all 0.5s ease-in-out;
     }
 
@@ -109,4 +110,18 @@
 
     .panel p {
         font-size: 1.2rem;
+    }
+
+    .library-panel, .generate-panel, .save-panel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .adjust, .lock {
+        font-size: 2rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        margin: 2rem 0rem;
     }
