@@ -94,6 +94,11 @@ function updateTextUI(index) {
     const textHex = activeDiv.querySelector('h2');
     const icons = activeDiv.querySelectorAll('.controls button');
     textHex.innerText = color.hex();
+    // Check contrast
+    checkTextContrast(color, textHex);
+    for(icon of icons) {
+        checkTextContrast(color, icon);
+    }
 }
 
 randomColors();
