@@ -3,6 +3,7 @@ const colorDivs = document.querySelectorAll('.color');
 const generateBtn = document.querySelector('.generate');
 const sliders = document.querySelectorAll('input[type="range"]');
 const currentHexes = document.querySelectorAll('.color h2');
+const popup = document.querySelector('.copy-container');
 let initialColors;
 
 // Add our Event Listeners
@@ -13,6 +14,16 @@ colorDivs.forEach((div, index) => {
     div.addEventListener('change', () => {
         updateTextUI(index);
     });
+});
+currentHexes.forEach(hex => {
+    hex.addEventListener('click', () => {
+        copyToClipBoard(hex);
+    });
+});
+popup.addEventListener('transitionend', () => {
+    const popupBox = popup.children[0];
+    popup.classList.remove('active');
+    popupBox.classList.remove('active');
 });
 
 // Functions
@@ -93,6 +104,9 @@ function hslControls(e) {
         .set('hsl.h', hue.value);
 
         colorDivs[index].style.backgroundColor = color;
+
+        // Colorize inputs/sliders
+        colorizeSliders(color, hue, brightness, saturation);
 }
 
 function updateTextUI(index) {
@@ -125,9 +139,21 @@ function resetInputs() {
             const satColor = initialColors[slider.getAttribute('data-sat')];
             const satValue = chroma(satColor).hsl()[1];
             slider.value = Math.floor(satValue * 100) / 100;
-            console.log(slider.value);
         }
     });
 }
 
+function copyToClipBoard(hex) {
+    const el = document.createElement('textarea');
+    el.value = hex.innerText;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    // Popup animation
+    const popupBox = popup.children[0];
+    popup.classList.add("active");
+    popupBox.classList.add("active");
+}
+ 
 randomColors();
