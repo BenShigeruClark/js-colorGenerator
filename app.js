@@ -40,6 +40,11 @@ closeAdjustments.forEach((button, index) => {
         closeAdjustmentPanel(index);
     })
 })
+lockButton.forEach((button, index) => {
+    button.addEventListener('click', (e) => {
+        closeLockButton(e, index);
+    })
+})
 
 // Functions
 
@@ -56,8 +61,14 @@ function randomColors() {
         const hexText = div.children[0];
         const randomColor = generateHex();
         // add it to the array
-        // console.log(chroma(randomColor).hex());
-        initialColors.push(chroma(randomColor).hex());
+        if(div.classList.contains("locked")) {
+            initialColors.push(hexText.innerText);
+            return;
+        } else {
+            initialColors.push(chroma(randomColor).hex());
+        }
+        
+        // initialColors.push(chroma(randomColor).hex());
 
         //add color to background
         div.style.backgroundColor = randomColor;
@@ -184,4 +195,13 @@ function closeAdjustmentPanel(index) {
     sliderContainers[index].classList.remove('active');
 }
  
+function closeLockButton(e, index) {
+    colorDivs[index].classList.toggle('locked');
+    if(colorDivs[index].classList.contains('locked')) {
+        e.target.innerHTML = `<i class="fas fa-lock"></i>`;
+    } else {
+        e.target.innerHTML = `<i class="fas fa-lock-open"></i>`;
+    }
+}
+
 randomColors();
