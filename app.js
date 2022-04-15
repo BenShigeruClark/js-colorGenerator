@@ -11,6 +11,7 @@ const sliderContainers = document.querySelectorAll('.sliders');
 let initialColors;
 
 // Add our Event Listeners
+generateBtn.addEventListener('click', randomColors);
 sliders.forEach(slider => {
     slider.addEventListener('input', hslControls);
 });
@@ -50,7 +51,7 @@ function generateHex() {
 
 function randomColors() {
         
-        initialColors = [];
+    initialColors = [];
     colorDivs.forEach((div, index) => {
         const hexText = div.children[0];
         const randomColor = generateHex();
