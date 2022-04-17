@@ -194,6 +194,8 @@
        padding: 1rem;
        background: rgb(62, 188, 255);
        border: none;
-       border-radius: 1rem;
+       border-radius: 10px;
+       color: white;
+       cursor: pointer;
        
    }
