@@ -242,7 +242,20 @@ function savedPalette(e) {
     let paletteNr = savedPalettes.length;
     const paletteObj = { name, colors, nr:paletteNr };
     savedPalettes.push(paletteObj);
-    console.log(savedPalettes);
+    // save to local storage
+    saveToLocal(paletteObj);
+    saveInput.value = '';
+}
+
+function saveToLocal(paletteObj) {
+    let localPalettes;
+    if(localStorage.getItem('palettes') === null) {
+        localPalettes = [];
+    } else {
+        localPalettes = JSON.parse(localStorage.getItem('palettes'));
+    }
+    localPalettes.push(paletteObj);
+    localStorage.setItem('palettes', JSON.stringify(localPalettes));
 }
 
 randomColors();
