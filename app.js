@@ -216,6 +216,7 @@ const saveInput = document.querySelector('.save-container input');
 // Event listeners 
 saveBtn.addEventListener('click', openPalette);
 closeSave.addEventListener('click', closePalette);
+submitSave.addEventListener('click', savedPalette);
 
 function openPalette(e) {
     const popup = saveContainer.children[0];
@@ -227,6 +228,21 @@ function closePalette(e) {
     const popup = saveContainer.children[0];
     saveContainer.classList.remove('active');
     popup.classList.add('remove');
+}
+
+function savedPalette(e) {
+    saveContainer.classList.remove('active');
+    popup.classList.remove('active');
+    const name = saveInput.value;
+    const colors = [];
+    currentHexes.forEach(hex => {
+        colors.push(hex.innerText);
+    });
+    // Generate Object
+    let paletteNr = savedPalettes.length;
+    const paletteObj = { name, colors, nr:paletteNr };
+    savedPalettes.push(paletteObj);
+    console.log(savedPalettes);
 }
 
 randomColors();
