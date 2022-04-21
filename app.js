@@ -215,6 +215,7 @@ const saveInput = document.querySelector('.save-container input');
 const libraryContainer = document.querySelector('.library-container');
 const libraryBtn = document.querySelector('.library');
 const closeLibraryBtn = document.querySelector('.close-library');
+// const deletLibraryBn = document.querySelector('.custom-palette');
 
 // Event listeners 
 saveBtn.addEventListener('click', openPalette);
@@ -304,10 +305,17 @@ function getLocal() {
                 smallDiv.style.backgroundColor = smallColor;
                 preview.appendChild(smallDiv);
         });
+        // Create the select button
         const paletteBtn = document.createElement('button');
         paletteBtn.classList.add('pick-palette-btn');
         paletteBtn.classList.add(paletteObj.nr);
         paletteBtn.innerText = 'Select';
+
+        //Create the Delete button
+        // const deleteBtn = document.createElement('button');
+        // deleteBtn.classList.add('delete-palette');
+        // deleteBtn.classList.remove(paletteObj.nr);
+        // deleteBtn.innerText = 'Delete';
 
         // Attach event to button
         paletteBtn.addEventListener('click', e => {
@@ -324,6 +332,12 @@ function getLocal() {
             resetInputs();
         });
 
+        // Add event for delete
+        // deletteBtn.addEventListener('click', (e) => {
+        //     const index = e.target.classList[1];
+        //     deletePalette(e, index);
+        // });
+
         // Append to Library
         palette.appendChild(title);
         palette.appendChild(preview);
@@ -334,6 +348,8 @@ function getLocal() {
         });
     }
 }
+
+
 
 
 getLocal();
