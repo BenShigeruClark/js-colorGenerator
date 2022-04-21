@@ -14,39 +14,46 @@ let savedPalettes = [];
 
 // Add our Event Listeners
 generateBtn.addEventListener('click', randomColors);
+
 sliders.forEach(slider => {
     slider.addEventListener('input', hslControls);
 });
+
 colorDivs.forEach((div, index) => {
     div.addEventListener('change', () => {
         updateTextUI(index);
     });
 });
+
 currentHexes.forEach(hex => {
     hex.addEventListener('click', () => {
         copyToClipBoard(hex);
     });
 });
+
 popup.addEventListener('transitionend', () => {
     const popupBox = popup.children[0];
     popup.classList.remove('active');
     popupBox.classList.remove('active');
 });
+
 adjustButton.forEach((button, index) => {
     button.addEventListener('click', () => {
         openAdjustmentPanel(index);
     });
 });
+
 closeAdjustments.forEach((button, index) => {
     button.addEventListener('click', () => {
         closeAdjustmentPanel(index);
-    })
-})
+    });
+});
+
 lockButton.forEach((button, index) => {
     button.addEventListener('click', (e) => {
         closeLockButton(e, index);
-    })
-})
+    });
+});
 
 // Functions
 
@@ -125,6 +132,7 @@ function hslControls(e) {
     const index = e.target.getAttribute("data-bright") || e.target.getAttribute("data-hue")  || e.target.getAttribute("data-sat");
 
     let sliders = e.target.parentElement.querySelectorAll('input[type="range"]');
+
     const hue = sliders[0];
     const brightness = sliders[1];
     const saturation = sliders[2];
