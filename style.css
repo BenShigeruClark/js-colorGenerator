@@ -134,6 +134,18 @@
         position: relative;
         border-radius: 1rem;
         cursor: pointer;
+        /* background: blue; */
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 16px;
+        width: 16px;
+        border-radius: 500px;
+        background: rgba(255, 255, 255, 1);
+        border: 1px solid #333;
+        cursor: pointer;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     }
 
     .copy-container, .save-container, .library-container {
@@ -189,6 +201,10 @@
        padding: 0.5rem;
    }
 
+   .save-popup {
+       border-top-right-radius: 2rem;
+   }
+
    .submit-save {
        margin: 2rem;
        padding: 1rem;
@@ -197,6 +213,7 @@
        border-radius: 10px;
        color: white;
        cursor: pointer;
+       font-size: 1.25rem;
    }
 
    .library-popup {
@@ -215,19 +232,43 @@
        padding: 2rem; 
    }
 
+   .custom-palette h4 {
+       flex: 1;
+   }
+
+   .custom-palette button {
+       border: none;
+       height: 5rem;
+       min-width: 6rem;
+       color: white;
+       background-color: #333;
+       font-size: 1.25rem;
+       transition: all 0.25s ease-in-out;
+   }
+
+   .custom-palette button:hover {
+       background-color: rgb(190, 190, 190);
+       color: #333;
+   }
+
    .small-preview {
        display: flex;
        flex: 1;
    }
 
-   .custom-palette h4{
-       flex: 1;
-
-   }
-
    .small-preview div {
        height: 5rem;
        flex: 1;
+   }
+
+   .delte-palette {
+       background-color: indianred;
+       min-width: 4rem;
+   }
+
+   .delete-palette:hover {
+       color: indianred;
+       background-color: #333;
    }
 
    .pick-palette-btn {
