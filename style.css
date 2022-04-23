@@ -261,13 +261,13 @@
        flex: 1;
    }
 
-   .delte-palette {
-       background-color: indianred;
+   .delete-palette {
+       background-color: rgb(228, 44, 44) !important;
        min-width: 4rem;
    }
 
    .delete-palette:hover {
-       color: indianred;
+       color: rgb(57, 202, 44) !important;
        background-color: #333;
    }
 
