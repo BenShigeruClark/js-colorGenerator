@@ -274,7 +274,8 @@
 
    .delete-palette:hover {
        color: rgb(57, 202, 44) !important;
-       background-color: #333 !important;
+       background-color: rgb(40, 114, 34) !important;
+       cursor: pointer;
    }
 
    .pick-palette-btn {
